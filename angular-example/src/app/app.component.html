@@ -1,0 +1,9 @@
+<div class="ui secondary pointing menu">
+    <button class="ui item " (click)="logout()" *ngIf="loggedin">logout</button>
+    <button class="ui item" routerLink="login" *ngIf="!loggedin">Login</button>
+    <button class="item" routerLink="operador" *ngIf="loggedin">Operador</button>
+    <button class="item" routerLink="administrador"*ngIf="loggedin && isadmin">Administrador</button>
+
+</div>
+
+<router-outlet></router-outlet>

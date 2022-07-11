@@ -1,0 +1,23 @@
+<div class="ui container">
+  <p>Para que puedas ingresar necesitas escribir en password lo mismo que en name pero en mayuscula y el administrador es alan</p>
+  <form [formGroup]="loginForm" class="ui form" (ngSubmit)="onSubmit()">
+    <div class="ui field">
+      <label>Nombre</label>
+      <input formControlName="name"/>
+      <div *ngIf="loginForm.controls['name'].errors && loginForm.controls['name'].touched" class="ui pointing red basic label">
+        <p *ngIf="loginForm.controls['name'].errors['required']">Nesecitas escribir algo</p>
+        <p *ngIf="loginForm.controls['name'].errors['minlength']">Es muy corto chamigo</p>
+        <p *ngIf="loginForm.controls['name'].errors['maxlength']">demasiado largo ya</p>
+      </div>
+      <label>Password</label>
+      <input formControlName="password" type="password"/>
+      <div *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].touched" class="ui pointing red basic label">
+        <p *ngIf="loginForm.controls['password'].errors['required']">Nesecitas escribir algo</p>
+        <p *ngIf="loginForm.controls['password'].errors['minlength']">Es muy corto chamigo</p>
+        <p *ngIf="loginForm.controls['password'].errors['maxlength']">demasiado largo ya</p>
+      </div>
+   </div>
+    <button type="submit">login</button>
+  </form>
+</div>
+
